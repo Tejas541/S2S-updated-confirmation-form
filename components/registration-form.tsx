@@ -58,7 +58,7 @@ export default function RegistrationForm() {
         <div className="relative mb-6">
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FF6B35] via-[#D6336C] to-[#FF6B35] blur-md opacity-70 animate-pulse" />
           <div className="relative w-48 h-48 rounded-full border-4 border-[#FF6B35] overflow-hidden">
-            <img src="/images/speaker.jpeg" alt="Speaker" className="w-full h-full object-cover" />
+            <img src="/images/speaker.png" alt="Speaker" className="w-full h-full object-cover" />
           </div>
         </div>
 
