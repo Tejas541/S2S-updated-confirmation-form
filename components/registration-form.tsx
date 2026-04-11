@@ -58,17 +58,17 @@ export default function RegistrationForm() {
         <div className="relative mb-6">
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FF6B35] via-[#D6336C] to-[#FF6B35] blur-md opacity-70 animate-pulse" />
           <div className="relative w-48 h-48 rounded-full border-4 border-[#FF6B35] overflow-hidden">
-            <img src="/images/speaker.png" alt="Speaker" className="w-full h-full object-cover" />
+            <img src="/images/speaker_Mayur.jpeg" alt="Speaker" className="w-full h-full object-cover" />
           </div>
         </div>
 
         {/* Headlines */}
         <p className="text-[#FF6B35] text-xs uppercase tracking-[0.3em] mb-2">Keynote Speaker and Guest </p>
-        <h1 className="text-white text-3xl font-bold text-center mb-4"> Mr. PRANAV GANDHE </h1>
+        <h1 className="text-white text-3xl font-bold text-center mb-4"> Mr. Mayur Patel </h1>
 
         {/* Bio Description */}
         <p className="text-gray-400 text-center text-sm leading-relaxed mb-8 px-4">
-         He started just like you — a student with big dreams but no clear path.Today, Pranav Sir is a successful entrepreneur
+         He started just like you — a student with big dreams but no clear path.Today, Mayur Sir is a successful entrepreneur
          who built startups while still in college. This is not just his story — it’s proof that 
          you don’t have to wait for a degree to start building your future. Learn the mindset shifts and practical 
          steps to transform yourself from a student into a Studentpreneur.
@@ -77,7 +77,7 @@ export default function RegistrationForm() {
         {/* Conference Title */}
         <div className="text-center mb-8">
           <h2 className="text-white text-xl font-semibold">Student to Studentpreneur🚀</h2>
-          <p className="text-gray-500 text-sm mt-1">Offline Conference - 29 March 2026</p>
+          <p className="text-gray-500 text-sm mt-1">Offline Conference - 12th April 2026</p>
         </div>
 
         {/* Book Your Seat Button */}
