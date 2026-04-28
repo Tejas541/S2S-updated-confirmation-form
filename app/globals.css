@@ -159,12 +159,15 @@
     @apply border-border outline-ring/50;
   }
 
- body {
+body {
   @apply text-foreground;
 
-  background: radial-gradient(circle at 10% 20%, rgba(255,106,0,0.2), transparent 40%),
-              radial-gradient(circle at 90% 80%, rgba(255,0,150,0.15), transparent 40%),
-              linear-gradient(135deg, #0b0b0f, #1a0f1f);
+  background: linear-gradient(
+    135deg,
+    #ff5a5f 0%,
+    #c2185b 40%,
+    #3b0a3d 100%
+  );
 
   min-height: 100vh;
 }
