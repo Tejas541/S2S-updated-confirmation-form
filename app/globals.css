@@ -162,12 +162,9 @@
 body {
   @apply text-foreground;
 
-  background: linear-gradient(
-    135deg,
-    #ff5a5f 0%,
-    #c2185b 40%,
-    #3b0a3d 100%
-  );
+  background: radial-gradient(circle at 20% 20%, rgba(255,100,80,0.4), transparent 40%),
+              radial-gradient(circle at 80% 80%, rgba(200,0,150,0.3), transparent 40%),
+              linear-gradient(135deg, #1a0a0a, #2b0a2b);
 
   min-height: 100vh;
 }
