@@ -46,7 +46,7 @@ export default function RegistrationForm() {
   // ================= INTRO =================
   if (currentStep === "intro") {
     return (
-      <div className="w-full max-w-[420px] min-h-[700px] bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl flex flex-col items-center justify-center">
+      <div className="w-full max-w-[420px] min-h-[700px] bg-black/40 backdrop-blur-2xl border border-white/10 rounded-2xl p-8 shadow-2xl flex flex-col items-center justify-center">
 
         <div className="relative mb-6">
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 blur-md opacity-70 animate-pulse" />
