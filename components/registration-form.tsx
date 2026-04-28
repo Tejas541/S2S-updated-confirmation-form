@@ -94,127 +94,245 @@ export default function RegistrationForm() {
 }
 
   // ================= SUCCESS =================
-  if (currentStep === "success") {
-    return (
-     <div className="w-full max-w-[400px] min-h-[700px] bg-[rgba(35,15,15,0.9)] rounded-[20px] p-8 shadow-2xl flex flex-col items-center justify-center">
-        <PartyPopper className="w-20 h-20 text-primary mb-6" />
+ if (currentStep === "success") {
+  return (
+    <div className="w-full max-w-[400px] min-h-[700px] bg-[rgba(35,15,15,0.9)] rounded-[20px] p-8 shadow-2xl flex flex-col items-center justify-center">
 
-        <h1 className="text-foreground text-2xl font-bold text-center mb-2">
-          Registration Complete!
-        </h1>
+      {/* Celebration Icon (if you had it) */}
 
-        <p className="text-muted-foreground text-center text-sm mb-8">
-          Thank you, {formData.firstName}!
-        </p>
+      <h1 className="text-white text-2xl font-bold text-center mb-2">
+        Registration Complete!
+      </h1>
 
-        <div className="w-full bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl p-1 mb-8">
-          <div className="bg-background rounded-lg p-6 text-center">
-            <p className="text-primary text-xs uppercase tracking-wider">Offline Pass</p>
-            <h3 className="text-foreground text-3xl font-bold mb-4">ADMIT ONE</h3>
+      <p className="text-gray-400 text-center text-sm mb-8">
+        Thank you for registering, {formData.firstName}! We are excited to have you.
+      </p>
 
-            <div className="border-t border-dashed border-border pt-4 mt-4">
-              <p className="font-semibold text-foreground">
+      {/* Offline Pass Ticket */}
+      <div className="w-full bg-gradient-to-br from-[#FF6B35] to-[#D6336C] rounded-xl p-1 mb-8">
+        <div className="bg-[rgba(35,15,15,0.95)] rounded-lg p-6 relative overflow-hidden">
+
+          <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-[rgba(35,15,15,0.9)] rounded-full" />
+          <div className="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-[rgba(35,15,15,0.9)] rounded-full" />
+
+          <div className="text-center">
+            <p className="text-[#FF6B35] text-xs uppercase tracking-[0.3em] mb-1">
+              Offline Pass
+            </p>
+
+            <h3 className="text-white text-3xl font-bold mb-4">
+              ADMIT ONE
+            </h3>
+
+            <div className="border-t border-dashed border-white/30 pt-4 mt-4">
+              <p className="text-white font-semibold">
                 {formData.firstName} {formData.lastName}
               </p>
-              <p className="text-muted-foreground text-sm">{formData.collegeName}</p>
+              <p className="text-gray-400 text-sm">
+                {formData.collegeName}
+              </p>
+              <p className="text-gray-500 text-xs mt-2">
+                Student to Studentpreneur 2026
+              </p>
             </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Back Button */}
+      <button
+        onClick={() => {
+          setCurrentStep("intro")
+          setFormData({
+            firstName: "",
+            lastName: "",
+            collegeName: "",
+            yearOfStudy: "",
+            branch: "",
+            whatsappNumber: "",
+            careerPath: "",
+          })
+          setUploadedFile(null)
+        }}
+        className="flex items-center justify-center gap-2 bg-white/10 border border-white/20 hover:bg-white/20 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+      >
+        <Home className="w-5 h-5" />
+        Back to Home
+      </button>
+
+    </div>
+  )
+}
+
+  // ================= FORM =================
+return (
+  <div className="w-full max-w-[400px] min-h-[700px] bg-[rgba(35,15,15,0.9)] rounded-[20px] p-8 shadow-2xl">
+
+    <h1 className="text-white text-2xl font-bold text-center mb-2">
+      Student to Studentpreneur
+    </h1>
+
+    <p className="text-gray-400 text-center text-sm mb-8">
+      Conference Registration
+    </p>
+
+    <form onSubmit={handleSubmit} className="space-y-4">
+
+      {/* Full Name */}
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="block text-[#999] text-xs uppercase tracking-wider mb-2">First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleInputChange}
+            className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 transition-colors"
+            placeholder="John"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="block text-[#999] text-xs uppercase tracking-wider mb-2">Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleInputChange}
+            className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 transition-colors"
+            placeholder="Doe"
+            required
+          />
+        </div>
+      </div>
+
+      {/* College Name */}
+      <div>
+        <label className="block text-[#999] text-xs uppercase tracking-wider mb-2">College Name</label>
+        <input
+          type="text"
+          name="collegeName"
+          value={formData.collegeName}
+          onChange={handleInputChange}
+          className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 transition-colors"
+          placeholder="Enter your college name"
+          required
+        />
+      </div>
+
+      {/* Year & Branch */}
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="block text-[#999] text-xs uppercase tracking-wider mb-2">Year of Study</label>
+          <div className="relative">
+            <select
+              name="yearOfStudy"
+              value={formData.yearOfStudy}
+              onChange={handleInputChange}
+              className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:border-white/40 transition-colors cursor-pointer"
+              required
+            >
+              <option value="" disabled className="bg-[#2B1055]">Select</option>
+              <option value="1st" className="bg-[#2B1055]">1st Year</option>
+              <option value="2nd" className="bg-[#2B1055]">2nd Year</option>
+              <option value="3rd" className="bg-[#2B1055]">3rd Year</option>
+              <option value="4th" className="bg-[#2B1055]">4th Year</option>
+            </select>
+            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
           </div>
         </div>
 
-        <button
-          onClick={() => {
-            setCurrentStep("intro")
-            setUploadedFile(null)
-          }}
-          className="flex items-center gap-2 bg-white/10 border border-white/20 text-foreground px-6 py-3 rounded-lg hover:bg-white/20"
-        >
-          <Home className="w-5 h-5" />
-          Back to Home
-        </button>
+        <div>
+          <label className="block text-[#999] text-xs uppercase tracking-wider mb-2">Branch</label>
+          <input
+            type="text"
+            name="branch"
+            value={formData.branch}
+            onChange={handleInputChange}
+            className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 transition-colors"
+            placeholder="CSE, ECE..."
+            required
+          />
+        </div>
       </div>
-    )
-  }
 
-  // ================= FORM =================
-  return (
-  <div className="w-full max-w-[400px] min-h-[700px] bg-[rgba(35,15,15,0.9)] rounded-[20px] p-8 shadow-2xl">
+      {/* WhatsApp */}
+      <div>
+        <label className="block text-[#999] text-xs uppercase tracking-wider mb-2">WhatsApp Number</label>
+        <input
+          type="tel"
+          name="whatsappNumber"
+          value={formData.whatsappNumber}
+          onChange={handleInputChange}
+          className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 transition-colors"
+          placeholder="+91 9876543210"
+          required
+        />
+      </div>
 
-      <h1 className="text-foreground text-2xl font-bold text-center mb-2">
-        Student to Studentpreneur
-      </h1>
-
-      <p className="text-muted-foreground text-center text-sm mb-8">
-        Conference Registration
-      </p>
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-
-        {/* Name */}
-        <div className="grid grid-cols-2 gap-4">
-          <input name="firstName" placeholder="First Name" required onChange={handleInputChange}
-            className="input-style" />
-          <input name="lastName" placeholder="Last Name" required onChange={handleInputChange}
-            className="input-style" />
-        </div>
-
-        <input name="collegeName" placeholder="College Name" required onChange={handleInputChange}
-          className="input-style" />
-
-        <div className="grid grid-cols-2 gap-4">
-          <select name="yearOfStudy" required onChange={handleInputChange} className="input-style">
-            <option value="">Year</option>
-            <option>1st</option>
-            <option>2nd</option>
-            <option>3rd</option>
-            <option>4th</option>
+      {/* Career Goal */}
+      <div>
+        <label className="block text-[#999] text-xs uppercase tracking-wider mb-2">Career Goal</label>
+        <div className="relative">
+          <select
+            name="careerPath"
+            value={formData.careerPath}
+            onChange={handleInputChange}
+            className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:border-white/40 transition-colors cursor-pointer"
+            required
+          >
+            <option value="" disabled className="bg-[#2B1055]">Select career goal</option>
+            <option value="job" className="bg-[#2B1055]">Job</option>
+            <option value="entrepreneurship" className="bg-[#2B1055]">Entrepreneurship</option>
+            <option value="business" className="bg-[#2B1055]">Business</option>
+            <option value="govt-job" className="bg-[#2B1055]">Govt Job</option>
+            <option value="higher-studies" className="bg-[#2B1055]">Higher Studies</option>
           </select>
-
-          <input name="branch" placeholder="Branch" required onChange={handleInputChange}
-            className="input-style" />
+          <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
         </div>
+      </div>
 
-        <input name="whatsappNumber" placeholder="WhatsApp Number" required onChange={handleInputChange}
-          className="input-style" />
+      {/* Payment */}
+      <div className="border-2 border-dashed border-white/50 rounded-xl p-4 mt-4">
+        <p className="text-[#999] text-xs uppercase tracking-wider text-center mb-3">Payment</p>
 
-        <select name="careerPath" required onChange={handleInputChange} className="input-style">
-          <option value="">Career Goal</option>
-          <option>Job</option>
-          <option>Entrepreneurship</option>
-          <option>Business</option>
-          <option>Govt Job</option>
-        </select>
-
-        {/* Payment */}
-        <div className="border border-border bg-white/5 rounded-xl p-5 space-y-4 text-center">
-
-          <div className="w-32 h-32 mx-auto bg-white rounded-lg overflow-hidden">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-32 h-32 bg-white rounded-lg flex items-center justify-center overflow-hidden">
             <img
               src={uploadedFile || "/images/whatsapp-20image-202026-01-16-20at-2012.jpeg"}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
           </div>
 
-          <p className="text-primary font-bold text-xl">₹299</p>
+          <p className="text-[#22c55e] text-xl font-bold">₹299/-</p>
 
-          <div className="flex justify-between items-center bg-background border border-border rounded-lg px-3 py-2">
-            <span className="text-muted-foreground text-xs">{UPI_ID}</span>
-            <button type="button" onClick={handleCopyUPI} className="text-primary text-xs">
+          <div className="w-full flex items-center justify-between bg-white/5 border border-white/10 rounded-lg px-3 py-2">
+            <span className="text-gray-400 text-xs truncate mr-2">{UPI_ID}</span>
+            <button type="button" onClick={handleCopyUPI} className="text-[#FF6B35] text-xs">
               {copied ? "Copied!" : "Copy"}
             </button>
           </div>
 
-          <input type="file" onChange={handleFileUpload} className="hidden" id="upload" />
-
-          <label htmlFor="upload" className="cursor-pointer bg-white/10 px-4 py-2 rounded-lg block">
-            Upload Screenshot
+          <label className="w-full cursor-pointer">
+            <div className="flex items-center justify-center gap-2 bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white hover:bg-white/20 transition-colors">
+              <Upload className="w-4 h-4" />
+              <span className="text-sm">Upload Payment Screenshot</span>
+            </div>
+            <input type="file" accept="image/*" onChange={handleFileUpload} className="hidden" />
           </label>
         </div>
+      </div>
 
-        <button className="w-full bg-gradient-to-r from-orange-500 to-pink-500 text-white py-3 rounded-lg font-semibold shadow-lg">
-          Verify & Confirm
-        </button>
+      <button
+        type="submit"
+        className="w-full bg-[#FF4757] hover:bg-[#ff5e6c] text-white font-bold text-lg py-4 rounded-lg mt-4 transition-colors uppercase tracking-wider"
+      >
+        Verify & Confirm
+      </button>
 
-      </form>
-    </div>
-  )
+    </form>
+  </div>
+)
 }
