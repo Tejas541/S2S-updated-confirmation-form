@@ -209,9 +209,6 @@ const downloadPass = async () => {
 >
   Download Pass 🎟️
 </button>
-      
-        </div>
-      </div>
 
       {/* Back Button */}
       <button
