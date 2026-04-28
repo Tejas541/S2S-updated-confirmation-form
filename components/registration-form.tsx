@@ -44,8 +44,9 @@ export default function RegistrationForm() {
     setCurrentStep("success")
   }
 const downloadPass = async () => {
-  const node = document.getElementById("pass")
+  if (typeof window === "undefined") return // ✅ FIX
 
+  const node = document.getElementById("pass")
   if (!node) return
 
   try {
