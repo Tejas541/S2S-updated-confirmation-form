@@ -44,7 +44,7 @@ export default function RegistrationForm() {
     setCurrentStep("success")
   }
 const downloadPass = async () => {
-  if (typeof window === "undefined") return // ✅ FIX
+  if (typeof window === "undefined") return 
 
   const node = document.getElementById("pass")
   if (!node) return
@@ -150,7 +150,7 @@ const downloadPass = async () => {
     {/* Event Info */}
     <div className="text-center mb-4">
       <h3 className="text-black text-lg font-semibold">
-        ADMIT ONE 🎟️
+        ADMIT ONE 
       </h3>
       <p className="text-gray-500 text-xs">
         Entry Pass
@@ -207,7 +207,7 @@ const downloadPass = async () => {
   onClick={downloadPass}
   className="w-full bg-[#FF4757] hover:bg-[#ff5e6c] text-white py-3 rounded-lg font-semibold"
 >
-  Download Pass 🎟️
+  Download Pass 
 </button>
 
       {/* Back Button */}
