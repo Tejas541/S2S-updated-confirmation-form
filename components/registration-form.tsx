@@ -77,7 +77,7 @@ export default function RegistrationForm() {
         {/* Conference Title */}
         <div className="text-center mb-8">
           <h2 className="text-white text-xl font-semibold">Student to Studentpreneur🚀</h2>
-          <p className="text-gray-500 text-sm mt-1">Offline Conference - 12th April 2026</p>
+          <p className="text-green-500 text-sm mt-1">Offline Conference - 1st May 2026</p>
         </div>
 
         {/* Book Your Seat Button */}
