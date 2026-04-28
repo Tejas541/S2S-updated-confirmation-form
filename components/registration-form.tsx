@@ -96,8 +96,7 @@ export default function RegistrationForm() {
   // ================= SUCCESS =================
   if (currentStep === "success") {
     return (
-      <div className="w-full max-w-[420px] min-h-[700px] bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl flex flex-col items-center justify-center">
-
+     <div className="w-full max-w-[400px] min-h-[700px] bg-[rgba(35,15,15,0.9)] rounded-[20px] p-8 shadow-2xl flex flex-col items-center justify-center">
         <PartyPopper className="w-20 h-20 text-primary mb-6" />
 
         <h1 className="text-foreground text-2xl font-bold text-center mb-2">
@@ -138,7 +137,7 @@ export default function RegistrationForm() {
 
   // ================= FORM =================
   return (
-    <div className="w-full max-w-[420px] min-h-[700px] bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl">
+  <div className="w-full max-w-[400px] min-h-[700px] bg-[rgba(35,15,15,0.9)] rounded-[20px] p-8 shadow-2xl">
 
       <h1 className="text-foreground text-2xl font-bold text-center mb-2">
         Student to Studentpreneur
