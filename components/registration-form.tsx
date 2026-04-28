@@ -49,9 +49,9 @@ export default function RegistrationForm() {
     <div className="w-full max-w-[420px] min-h-[700px] bg-[#4b0f12] rounded-2xl p-8 shadow-2xl flex flex-col items-center justify-center">
 
       {/* IMAGE */}
-      <div className="relative mb-6">
+      <div className="relative mb-8">
         <div className="absolute inset-0 rounded-full bg-orange-500 blur-xl opacity-60" />
-        <div className="relative w-40 h-40 rounded-full border-4 border-orange-500 overflow-hidden">
+      <div className="relative w-[180px] h-[180px] rounded-full border-4 border-orange-500 overflow-hidden">
           <img src="/images/speaker_Mayur.jpeg" className="w-full h-full object-cover" />
         </div>
       </div>
