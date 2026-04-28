@@ -45,50 +45,53 @@ export default function RegistrationForm() {
 
   // ================= INTRO =================
   if (currentStep === "intro") {
-    return (
-      <div className="w-full max-w-[420px] min-h-[700px] bg-black/40 backdrop-blur-2xl border border-white/10 rounded-2xl p-8 shadow-2xl flex flex-col items-center justify-center">
+  return (
+    <div className="w-full max-w-[420px] min-h-[700px] bg-[#4b0f12] rounded-2xl p-8 shadow-2xl flex flex-col items-center justify-center">
 
-        <div className="relative mb-6">
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 blur-md opacity-70 animate-pulse" />
-          <div className="relative w-48 h-48 rounded-full border-4 border-orange-500 overflow-hidden">
-            <img src="/images/speaker_Mayur.jpeg" className="w-full h-full object-cover" />
-          </div>
+      {/* IMAGE */}
+      <div className="relative mb-6">
+        <div className="absolute inset-0 rounded-full bg-orange-500 blur-xl opacity-60" />
+        <div className="relative w-40 h-40 rounded-full border-4 border-orange-500 overflow-hidden">
+          <img src="/images/speaker_Mayur.jpeg" className="w-full h-full object-cover" />
         </div>
-
-        <p className="text-primary text-xs uppercase tracking-[0.3em] mb-2">
-          Keynote Speaker and Guest
-        </p>
-
-        <h1 className="text-foreground text-3xl font-bold text-center mb-4">
-          Mr. Mayur Patel
-        </h1>
-
-        <p className="text-muted-foreground text-center text-sm leading-relaxed mb-8 px-4">
-           He started just like you — a student with big dreams but no clear path.Today, Mayur Sir is a successful entrepreneur
-     who built startups while still in college. This is not just his story — it’s proof that 
-     you don’t have to wait for a degree to start building your future. Learn the mindset shifts and practical 
-     steps to transform yourself from a student into a Studentpreneur.
-        </p>
-
-        <div className="text-center mb-8">
-          <h2 className="text-foreground text-xl font-semibold">
-            Student to Studentpreneur 🚀
-          </h2>
-          <p className="text-green-500 text-sm mt-1">
-            Offline Conference - 1st May 2026
-          </p>
-        </div>
-
-        <button
-          onClick={() => setCurrentStep("form")}
-          className="flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold py-3 px-6 rounded-lg hover:scale-105 transition-all duration-300 shadow-lg"
-        >
-          Book Your Seat
-          <ArrowRight className="w-5 h-5" />
-        </button>
       </div>
-    )
-  }
+
+      {/* TOP TEXT */}
+      <p className="text-orange-400 text-xs uppercase tracking-[0.3em] mb-2">
+        KEYNOTE SPEAKER AND GUEST
+      </p>
+
+      {/* NAME */}
+      <h1 className="text-white text-3xl font-bold text-center mb-4">
+        Mr. Mayur Patel
+      </h1>
+
+      {/* DESCRIPTION */}
+      <p className="text-gray-300 text-center text-sm leading-relaxed mb-8 px-4">
+        He started just like you — a student with big dreams but no clear path. Today, Mayur Sir is a successful entrepreneur who built startups while still in college. This is not just his story — it’s proof that you don’t have to wait for a degree to start building your future.
+      </p>
+
+      {/* TITLE */}
+      <div className="text-center mb-8">
+        <h2 className="text-white text-lg font-semibold">
+          Student to Studentpreneur 🚀
+        </h2>
+        <p className="text-green-400 text-sm mt-1 font-medium">
+          Offline Conference - 1st May 2026
+        </p>
+      </div>
+
+      {/* BUTTON */}
+      <button
+        onClick={() => setCurrentStep("form")}
+        className="w-full bg-[#ff4d5a] hover:bg-[#ff5e6c] text-white font-bold py-3 rounded-lg transition-all"
+      >
+        BOOK YOUR SEAT →
+      </button>
+
+    </div>
+  )
+}
 
   // ================= SUCCESS =================
   if (currentStep === "success") {
