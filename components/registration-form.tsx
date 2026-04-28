@@ -3,6 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { ChevronDown, Upload, PartyPopper, ArrowRight, Home, Copy, Check } from "lucide-react"
+import { toPng } from "html-to-image"
 
 type Step = "intro" | "form" | "success"
 
@@ -42,6 +43,22 @@ export default function RegistrationForm() {
     e.preventDefault()
     setCurrentStep("success")
   }
+const downloadPass = async () => {
+  const node = document.getElementById("pass")
+
+  if (!node) return
+
+  try {
+    const dataUrl = await toPng(node)
+
+    const link = document.createElement("a")
+    link.download = "event-pass.png"
+    link.href = dataUrl
+    link.click()
+  } catch (error) {
+    console.error("Error generating image:", error)
+  }
+}
 
   // ================= INTRO =================
   if (currentStep === "intro") {
@@ -107,36 +124,91 @@ export default function RegistrationForm() {
       <p className="text-gray-400 text-center text-sm mb-8">
         Thank you for registering, {formData.firstName}! We are excited to have you.
       </p>
+{/* Premium Ticket */}
+<div
+  id="pass"
+  className="w-full max-w-md mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden mb-8"
+>
+  {/* Top Banner */}
+  <div className="bg-gradient-to-r from-[#ff4d5a] to-[#c2185b] p-4 text-center">
+    <p className="text-white text-xs tracking-[0.3em] uppercase">
+      Student to Studentpreneur
+    </p>
+    <h2 className="text-white text-xl font-bold mt-1">
+      Offline Conference
+    </h2>
+  </div>
 
-      {/* Offline Pass Ticket */}
-      <div className="w-full bg-gradient-to-br from-[#FF6B35] to-[#D6336C] rounded-xl p-1 mb-8">
-        <div className="bg-[rgba(35,15,15,0.95)] rounded-lg p-6 relative overflow-hidden">
+  {/* Ticket Body */}
+  <div className="p-5 bg-white relative">
 
-          <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-[rgba(35,15,15,0.9)] rounded-full" />
-          <div className="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-[rgba(35,15,15,0.9)] rounded-full" />
+    {/* Ticket Cut */}
+    <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-gray-100 rounded-full" />
+    <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-gray-100 rounded-full" />
 
-          <div className="text-center">
-            <p className="text-[#FF6B35] text-xs uppercase tracking-[0.3em] mb-1">
-              Offline Pass
-            </p>
+    {/* Event Info */}
+    <div className="text-center mb-4">
+      <h3 className="text-black text-lg font-semibold">
+        ADMIT ONE 🎟️
+      </h3>
+      <p className="text-gray-500 text-xs">
+        Entry Pass
+      </p>
+    </div>
 
-            <h3 className="text-white text-3xl font-bold mb-4">
-              ADMIT ONE
-            </h3>
+    {/* Divider */}
+    <div className="border-t border-dashed border-gray-300 my-4" />
 
-            <div className="border-t border-dashed border-white/30 pt-4 mt-4">
-              <p className="text-white font-semibold">
-                {formData.firstName} {formData.lastName}
-              </p>
-              <p className="text-gray-400 text-sm">
-                {formData.collegeName}
-              </p>
-              <p className="text-gray-500 text-xs mt-2">
-                Student to Studentpreneur 2026
-              </p>
-            </div>
-          </div>
+    {/* User Details */}
+    <div className="space-y-2 text-sm">
+      <div className="flex justify-between">
+        <span className="text-gray-500">Name</span>
+        <span className="text-black font-medium">
+          {formData.firstName} {formData.lastName}
+        </span>
+      </div>
 
+      <div className="flex justify-between">
+        <span className="text-gray-500">College</span>
+        <span className="text-black font-medium">
+          {formData.collegeName}
+        </span>
+      </div>
+
+      <div className="flex justify-between">
+        <span className="text-gray-500">Pass Type</span>
+        <span className="text-black font-medium">
+          Student Entry
+        </span>
+      </div>
+
+      <div className="flex justify-between">
+        <span className="text-gray-500">Amount</span>
+        <span className="text-green-600 font-semibold">
+          ₹299 Paid
+        </span>
+      </div>
+    </div>
+
+    {/* Divider */}
+    <div className="border-t border-dashed border-gray-300 my-4" />
+
+    {/* Footer */}
+    <div className="text-center">
+      <p className="text-gray-600 text-xs">
+        Show this pass at entry gate
+      </p>
+    </div>
+
+  </div>
+</div>
+      <button
+  onClick={downloadPass}
+  className="w-full bg-[#FF4757] hover:bg-[#ff5e6c] text-white py-3 rounded-lg font-semibold"
+>
+  Download Pass 🎟️
+</button>
+      
         </div>
       </div>
 
